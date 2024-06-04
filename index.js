@@ -78,7 +78,7 @@ const form = {
     password: () => document.getElementById('password'),
     passwordRequiredError: () => document.getElementById('password-required-error'),
     recoverPassword: () => document.getElementById('recover-password-button')
-}
+} 
 
 
 
