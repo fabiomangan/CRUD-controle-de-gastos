@@ -10,27 +10,38 @@ function onChangePassword() {
 
 function login() {
     showLoading();
-  firebase.auth().signInWithEmailAndPassword(
-    form.email().value, form.password().value
-).then(response => {
-    hideLoading();
-    window.location.href = "pages/home/home.html";
-  }).catch(error => {
-    hideLoading();
-    alert(getErrorMessage(error));
-  });
+    firebase.auth().signInWithEmailAndPassword(
+        form.email().value, form.password().value
+    ).then(response => {
+        hideLoading();
+        window.location.href = "pages/home/home.html";
+    }).catch(error => {
+        hideLoading();
+        alert(getErrorMessage(error));
+    });
 }
 
 function getErrorMessage(error) {
     console.log(error)
-   if (error.code == "auth/invalid-credential") {
-    return "Usuário não encontrado";
-   }
-   return error.message;
+    if (error.code == "auth/invalid-credential") {
+        return "Usuário não encontrado";
+    }
+    return error.message;
 }
 
 function register() {
     window.location.href = "pages/register/register.html";
+}
+
+function recoverPassword() {
+    showLoading();
+    firebase.auth().sendPasswordResetEmail(form.email().value).then(() => {
+        hideLoading();
+        alert('Email enviado com sucesso')
+    }).catch(error => {
+        hideLoading();
+        alert(getErrorMessage(error));
+    });
 }
 
 function isEmailValid() {
@@ -44,7 +55,7 @@ function isEmailValid() {
 function toggleEmailErros() {
     const email = form.email().value;
     form.emailRequiredError().style.display = email ? "none" : "block";
-    
+
     form.emailInvalidError().style.display = validateEmail(email) ? "none" : "block";
 }
 
@@ -78,7 +89,7 @@ const form = {
     password: () => document.getElementById('password'),
     passwordRequiredError: () => document.getElementById('password-required-error'),
     recoverPassword: () => document.getElementById('recover-password-button')
-} 
+}
 
 
 

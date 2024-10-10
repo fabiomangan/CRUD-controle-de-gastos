@@ -6,7 +6,7 @@ function showLoading() {
     label.innerText = "Carregando...";
 
     div.appendChild(label);
-    
+
     document.body.appendChild(div);
 }
 
