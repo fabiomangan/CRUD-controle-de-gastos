@@ -1,52 +1,62 @@
 body {
-    margin: 0;
+  margin: 0;
 }
 
 .centralize {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .loading {
-    background: rgba(0, 0, 0, 0.5);
-    position: fixed;
-    width: 100%;
-    height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  width: 100%;
+  height: 100%;
 }
 
 .loading label {
-    font-size: 24px;
+  font-size: 24px;
 }
 
 .clear {
-    background: transparent;
-    border: none;
-    color: white;
+  background: transparent;
+  border: none;
+  color: white;
 }
 
 .solid {
-    background: white;
-    border: none;
-    color: rgb(45, 211, 111);
+  background: white;
+  border: none;
+  color: rgb(45, 211, 111);
 }
 
 .outline {
-    background: transparent;
-    color: white;
-    border: 1px solid white;
+  background: transparent;
+  color: white;
+  border: 1px solid white;
 }
 
 button:active {
-    opacity: 0.5;
+  opacity: 0.5;
 }
 
 button[disabled] {
-    opacity: 0.7;
+  opacity: 0.7;
 }
 
 .error {
-    color: white;
-    background: red;
-    display: none;
+  color: white;
+  background: red;
+  display: none;
+}
+
+.form-field {
+  margin-bottom: 10px;
+}
+
+input,
+button {
+  padding: 10px;
+  width: -webkit-fill-available;
 }
